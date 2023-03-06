@@ -19,8 +19,6 @@ jobs:
           java-version: "11"
           distribution: temurin
           cache: maven
-      - name: Install dependencies
-        run: npm install --save-dev
       - name: Install Maven
         run: sudo apt-get install maven
       - name: Build Angular app
