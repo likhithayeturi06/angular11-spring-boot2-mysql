@@ -24,7 +24,7 @@ jobs:
       - name: build with maven
         run: mvn clean package
       - name: upload war artifact
-         uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: Package
           path: target/my-app.war
