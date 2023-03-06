@@ -29,10 +29,12 @@ jobs:
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install Maven dependencies
         run: mvn dependency:resolve
+      - name : create build folder
+        run: mdir build
       - name: build with maven
         run: mvn --batch-mode --update-snapshots package
       - name: Run Maven clean and package
-        run: mvn clean package
+        run: mvn clean package -Dmaven.buildDirectory=./build
       - name: Run the Maven verify phase
         run: mvn --batch-mode --update-snapshots verify
       - run: mkdir staging && cp target/*.jar staging
