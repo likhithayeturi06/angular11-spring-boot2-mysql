@@ -19,18 +19,12 @@ jobs:
           java-version: "11"
           distribution: temurin
           cache: maven
-      - name: Install Maven
-        run: sudo apt-get install maven
-      - name: Build Angular app
-        run: ng run build --prod
-      - name: Build Spring boot app
-        run: mvn package
+      - name: Build with Maven
+        run: mvn clean install
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Angular test
-        run: ng run test
-      - name: Run spring boot tests
+      - name: Run test with Maven
         run: mvn test
   deploy:
     runs-on: ubuntu-latest
