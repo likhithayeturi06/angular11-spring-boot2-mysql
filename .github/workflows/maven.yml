@@ -8,7 +8,7 @@ on:
     branches:
       - master
 jobs:
-  build:
+  build-maven:
     runs-on: ubuntu-latest
     steps:
       - name: Get-Code
@@ -27,17 +27,16 @@ jobs:
         with:
           path: ~/.npm
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        run: npm ci
+      - name: Install Maven dependencies
+        run: mvn dependency:resolve
       - name: build with maven
-        run: mvn -B package --file pom.xml
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run test with Maven
-        run: mvn test --file pom.xml
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: deployed
-        run: echo "deployed"
+        run: mvn --batch-mode --update-snapshots package
+      - name: Run Maven clean and package
+        run: mvn clean package
+      - name: Run the Maven verify phase
+        run: run: mvn --batch-mode --update-snapshots verify
+      - run: mkdir staging && cp target/*.jar staging
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Package
+          path: staging
