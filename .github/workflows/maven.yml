@@ -20,7 +20,7 @@ jobs:
           distribution: temurin
           cache: maven
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Install Maven
         run: sudo apt-get install maven
       - name: Build Angular app
