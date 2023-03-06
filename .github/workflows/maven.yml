@@ -35,6 +35,7 @@ jobs:
         run: mvn --batch-mode --update-snapshots package
       - name: Run Maven clean and package
         run: mvn clean package -Dmaven.buildDirectory=./build
+      - run: mvn package
       - run: ls -a
       - name: Run the Maven verify phase
         run: mvn --batch-mode --update-snapshots verify
