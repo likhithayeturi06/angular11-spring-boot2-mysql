@@ -21,14 +21,16 @@ jobs:
           cache: maven
       - name: Install Maven
         run: sudo apt-get install -y maven
-      - name: Build Angular
-        run: |
-          cd frontend
-          npm install --package-lock-only
-          npm install
-          npm run build
-      - name: build spring boot
-        run: mvn -f backend/pom.xml clean install
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm ci
+      - name: build with maven
+        run: mvn -B package --file pom.xml
   test:
     runs-on: ubuntu-latest
     steps:
