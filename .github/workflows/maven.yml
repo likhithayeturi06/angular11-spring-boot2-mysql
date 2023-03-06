@@ -40,21 +40,7 @@ jobs:
         with:
           name: Package
           path: staging
-  build-and-test-angular:
-    runs-on: ubuntu-latest
-    steps:
-      - name: set up node.js
-        uses: actions/setup-node@v3
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          node-version: 16
-      - name: Install dependencies
-        run: npm install
-      - name: Build app
-        run: ng build --prod
-      - name: run tests
-        run: ng test --watch=false --browsers=ChromeHeadless
-      - name: upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: app
-          path: dist/my-app
+          folder: build/
