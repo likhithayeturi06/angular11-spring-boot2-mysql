@@ -24,6 +24,7 @@ jobs:
       - name: Build Angular
         run: |
           cd frontend
+          npm install --package-lock-only
           npm install
           npm run build
       - name: build spring boot
