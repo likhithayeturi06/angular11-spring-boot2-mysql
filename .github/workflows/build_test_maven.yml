@@ -36,5 +36,8 @@ jobs:
           host: ${{secrets.TOMCAT_HOST}}
           username: ${{secrets.TOMCAT_USERNAME}}
           password: ${{secrets.TOMCAT_PASSEORD}}
-          source: local/build/libs/*war
-          target: /opt/tomcat/webapps/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
+          script: |
+            cd /opt/tomcat/webapps
+            rm -rf angular11-spring-boot2-mysql*
+            cp /path/to/project/target/*.war angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
+            curl -v -u tomcat:tomcat "http://localhost:8080/manager/text/reload?path=/angular11-spring-boot2-mysql"
