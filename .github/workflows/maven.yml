@@ -55,8 +55,10 @@ jobs:
         run: npm install -g @angular/cli@15.2.1
       - name: Install project dependencies
         run: npm install
+      - run: ng new my-angular-project
+      - run: cd my-angular-project
+      - run: ng serve --open
       - name: build and test ANgular app
         run: |
-          ng serve
           ng build --prod
           ng test --watch=false
