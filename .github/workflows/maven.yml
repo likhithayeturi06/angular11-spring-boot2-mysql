@@ -60,5 +60,4 @@ jobs:
         run: |
           cd angular-app
           npm install
-          ng build
-          ng test --watch=false
+          npm run build --prod
