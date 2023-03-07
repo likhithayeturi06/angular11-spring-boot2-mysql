@@ -52,7 +52,7 @@ jobs:
         with:
           node-version: 16
       - name: Install Angular CLI
-        run: npm install -g @gngular/cli@11.2.14
+        run: npm install -g @angular/cli@11.2.14
       - name: Install project dependencies
         run: npm install
       - name: build and test ANgular app
