@@ -18,25 +18,15 @@ jobs:
         with:
           java-version: "11"
           distribution: temurin
-          cache: maven
-      - name: Install Maven
-        run: sudo apt-get install -y maven
       - name: Cache dependencies
-        id: cache
         uses: actions/cache@v3
         with:
           path: ~/.npm
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: Install Maven dependencies
-        run: mvn dependency:resolve
-      - name : create build folder
-        run: mkdir build
-      - name: build with maven
-        run: mvn --batch-mode --update-snapshots package
+      - name: Install Maven
+        run: sudo apt-get install -y maven
       - name: Run Maven clean and package
-        run: mvn clean package -Dmaven.buildDirectory=./build
-      - name: Run the Maven verify phase
-        run: mvn --batch-mode --update-snapshots verify
+        run: mvn clean package
       - uses: actions/upload-artifact@v3
         with:
           name: War File
@@ -66,7 +56,6 @@ jobs:
           cd angular-app
           npm install
           npm run build
-          cd dist
       - uses: actions/upload-artifact@v3
         with:
           name: Angular build folder
