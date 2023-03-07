@@ -1,3 +1,4 @@
+---
 name: Java CI with Maven and uploading artifact as WAR file
 on:
   push:
@@ -34,20 +35,18 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with:
           local: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
-          remote: 
-angular11-spring-boot2-mysql/demo/actions/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war # My remote directory
+          remote: angular11-spring-boot2-mysql/demo/actions/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
           host: ${{ secrets.TOMCAT_HOST }}
           username: ${{ secrets.TOMCAT_USERNAME }}
           password: ${{ secrets.TOMCAT_PASSEORD }}
       - name: Run a script on remote server (start the application)
         if: always()
         uses: fifsky/ssh-action@master
-        with:
-        command: |
-          cd \
-angular11-spring-boot2-mysql/demo/actions/ && java -jar angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war &
+        with: null
+        command: >
+          cd angular11-spring-boot2-mysql/demo/actions/ && java -jar
+          angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war &
         host: ${{ secrets.TOMCAT_HOST }}
         user: ${{ secrets.TOMCAT_USERNAME }}
         pass: ${{ secrets.TOMCAT_PASSEORD }}
-        args: "-tt"
-        # The & in the command runs the process on background
+        args: -tt
