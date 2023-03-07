@@ -59,5 +59,6 @@ jobs:
       - name: build and test ANgular app
         run: |
           cd angular-app
+          npm install
           ng build
           ng test --watch=false
