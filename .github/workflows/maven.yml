@@ -39,7 +39,7 @@ jobs:
         run: mvn --batch-mode --update-snapshots verify
       - uses: actions/upload-artifact@v3
         with:
-          name: Package
+          name: War File
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
   build-and-test-angular:
     runs-on: ubuntu-latest
@@ -69,6 +69,6 @@ jobs:
           cd dist
       - uses: actions/upload-artifact@v3
         with:
-          name: Package
-          path: angular-app/dist/angular-app
+          name: Angular build folder
+          path: angular-app/dist
       
