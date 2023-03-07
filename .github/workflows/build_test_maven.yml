@@ -38,4 +38,4 @@ jobs:
           password: ${{secrets.TOMCAT_PASSEORD}}
           script: |
             wget https://github.com/${{github.repository}}/releases/download/${{github.ref}}/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war -o/tmp/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
-            curl -T /tmp/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war "http://localhost:8080/manager/test/deploy?path=/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT&update=true" --user "${{secrets.TOMCAT_USERNAME}}:${{secrets.TOMCAT_PASSWORD}}"
+            curl -T /tmp/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war "http://localhost:8080/manager/text/deploy?path=/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT&update=true" --user "${{secrets.TOMCAT_USERNAME}}:${{secrets.TOMCAT_}}"
