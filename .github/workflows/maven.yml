@@ -27,11 +27,13 @@ jobs:
         run: sudo apt-get install -y maven
       - name: Run Maven clean and package
         run: mvn clean package
-      - uses: actions/upload-artifact@v3
+      - name: Uploading War file as an artifact
+        uses: actions/upload-artifact@v3
         with:
           name: War File
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
   build-and-test-angular:
+    needs: build-and-test-maven
     runs-on: ubuntu-latest
     steps:
       - name: Get-Code
@@ -51,13 +53,13 @@ jobs:
         run: npm install -g @angular/cli
       - name: Install project dependencies
         run: npm install
-      - name: build and test ANgular app
+      - name: Build Angular app
         run: |
           cd angular-app
           npm install
           npm run build
-      - uses: actions/upload-artifact@v3
+      - name: Uploading build folder as an artifact
+        uses: actions/upload-artifact@v3
         with:
           name: Angular build folder
           path: angular-app/dist
-      
