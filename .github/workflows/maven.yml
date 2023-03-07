@@ -40,7 +40,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Package
-          path: target/*.war
+          path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
   build-and-test-angular:
     runs-on: ubuntu-latest
     steps:
