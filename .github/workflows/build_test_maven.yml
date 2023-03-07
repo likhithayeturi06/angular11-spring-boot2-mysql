@@ -43,7 +43,7 @@ jobs:
         if: always()
         uses: fifsky/ssh-action@master
         with: null
-        command: >
+        command: |
           cd angular11-spring-boot2-mysql/demo/actions/ && java -jar
           angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war &
         host: ${{ secrets.TOMCAT_HOST }}
