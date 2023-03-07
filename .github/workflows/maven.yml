@@ -70,5 +70,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Package
-          path: dist/angular-app
+          path: angular-app/dist/angular-app
       
