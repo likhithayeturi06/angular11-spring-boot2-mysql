@@ -38,7 +38,3 @@ jobs:
             --http-user="tomcat" \
             --http-password="tomcat" \
             --header="Content-Type: application/octet-stream"
-        env:
-          TOMCAT_HOST: ${{secrets.TOMCAT_HOST}}
-          TOMCAT_USERNAME: ${{secrets.TOMCAT_USERNAME}}
-          TOMCAT_PASSEORD: ${{secrets.TOMCAT_PASSEORD}}
