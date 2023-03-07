@@ -67,6 +67,7 @@ jobs:
           cd angular-app
           npm install
           ng build --configuration production
+      - run: ls
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
         with:
