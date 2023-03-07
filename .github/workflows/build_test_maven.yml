@@ -31,13 +31,5 @@ jobs:
           name: Package
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
       - name: deploy war file to tomcat
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{secrets.TOMCAT_HOST}}
-          username: ${{secrets.TOMCAT_USERNAME}}
-          password: ${{secrets.TOMCAT_PASSEORD}}
-          script: |
-            cd /opt/tomcat/webapps
-            rm -rf angular11-spring-boot2-mysql*
-            cp /path/to/project/target/*.war angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
-            curl -v -u tomcat:tomcat "http://localhost:8080/manager/text/reload?path=/angular11-spring-boot2-mysql"
+        run: |
+          curl --upload-file target\dangular11-spring-boot2-mysql-0.0.1-SNAPSHOTebug.war "http://tomcat:tomcat@localhost:8088/manager/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT?path=/debug&update=true"
