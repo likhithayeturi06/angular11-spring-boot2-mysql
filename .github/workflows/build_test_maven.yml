@@ -30,6 +30,4 @@ jobs:
         with:
           name: Package
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
-      - name: deploy war file to tomcat
-        run: |
-          curl --upload-file target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war "http://localhost:8080/manager/deploy?path=/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT&update=true"
+    
