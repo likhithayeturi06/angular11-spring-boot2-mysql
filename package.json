@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^15.2.1"
   }
 }
