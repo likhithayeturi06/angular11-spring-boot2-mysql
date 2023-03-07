@@ -32,8 +32,12 @@ jobs:
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
       - name: deploy war file to tomcat
         run: |
-          curl -u tomcat:tomcat -X PUT -T target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war \
-            "http://localhost:8080/manager/text/deploy?path=/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT&update=true"
+          wget "http://localhost:8080/manager/text/deploy?path=/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT&war=file://${{github.workspace}}/target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war" \
+            --content-on-error \
+            --auth-no-challenge \
+            --http-user="tomcat" \
+            --http-password="tomcat" \
+            --header="Content-Type: application/octet-stream"
         env:
           TOMCAT_HOST: ${{secrets.TOMCAT_HOST}}
           TOMCAT_USERNAME: ${{secrets.TOMCAT_USERNAME}}
