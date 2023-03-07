@@ -32,4 +32,4 @@ jobs:
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
       - name: deploy war file to tomcat
         run: |
-          curl --upload-file target\dangular11-spring-boot2-mysql-0.0.1-SNAPSHOTebug.war "http://tomcat:tomcat@localhost:8088/manager/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT?path=/debug&update=true"
+          curl --upload-file target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOTebug.war "http://tomcat:tomcat@localhost:8088/manager/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT?path=/debug&update=true"
