@@ -51,8 +51,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: npm install @angular/cli
       - name: Install Angular CLI
-        run: npm install -g @angular/cli@15.2.1
+        run: npm init @angular
+      - run: npm install @angular/cli
       - name: Install project dependencies
         run: npm install
       - run: ng new my-angular-project
