@@ -67,5 +67,8 @@ jobs:
           npm install
           npm run build
           cd dist
-          ls
-      - run: ls
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Package
+          path: dist/angular-app
+      
