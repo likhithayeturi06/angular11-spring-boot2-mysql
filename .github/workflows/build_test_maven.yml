@@ -1,4 +1,3 @@
----
 name: Java CI with Maven and uploading artifact as WAR file
 on:
   push:
@@ -31,22 +30,11 @@ jobs:
         with:
           name: Package
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
-      - name: Deploy the package to the remote server
-        uses: garygrossgarten/github-action-scp@release
+      - name: deploy war file to tomcat
+        uses: appleboy/scp-action@master
         with:
-          local: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
-          remote: angular11-spring-boot2-mysql/demo/actions/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
-          host: ${{ secrets.TOMCAT_HOST }}
-          username: ${{ secrets.TOMCAT_USERNAME }}
-          password: ${{ secrets.TOMCAT_PASSEORD }}
-      - name: Run a script on remote server (start the application)
-        if: always()
-        uses: fifsky/ssh-action@master
-        with:
-          command: |
-            cd angular11-spring-boot2-mysql/demo/actions/ && java -jar
-            angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war &
-          host: ${{ secrets.TOMCAT_HOST }}
-          user: ${{ secrets.TOMCAT_USERNAME }}
-          pass: ${{ secrets.TOMCAT_PASSEORD }}
-          args: -tt
+          host: ${{secrets.TOMCAT_HOST}}
+          username: ${{secrets.TOMCAT_USERNAME}}
+          password: ${{secrets.TOMCAT_PASSEORD}}
+          source: local/build/libs/*war
+          target: /opt/tomcat/webapps/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
