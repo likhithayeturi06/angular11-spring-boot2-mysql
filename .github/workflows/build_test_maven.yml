@@ -32,6 +32,4 @@ jobs:
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
       - name: deploy war file to tomcat
         run: |
-          cd /opt/tomcat/webapps/
-          rm -rf ROOT.war ROOT/
-          cp /path/to/war/artifact.war ROOT.war
+          curl -v -u tomcat:tomcat --upload-file target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war "http://localhost:8080/manager/text/deploy?path=/angular11-spring-boot2-mysql&update=true"
