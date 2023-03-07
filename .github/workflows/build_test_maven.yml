@@ -33,7 +33,7 @@ jobs:
       - name: deploy war file to tomcat
         run: |
           curl -u ${{secrets.TOMCAT_USERNAME}}:${{secrets.TOMCAT_PASSEORD}} --upload-file target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war \
-            "http://${{secrets.TOMCAT_HOST}}:8080/manager/text/deploy?path=/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT&update=true"
+            "http://localhost:8080/manager/text/deploy?path=/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT&update=true"
         env:
           TOMCAT_HOST: ${{secrets.TOMCAT_HOST}}
           TOMCAT_USERNAME: ${{secrets.TOMCAT_USERNAME}}
