@@ -31,12 +31,7 @@ jobs:
           name: Package
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
       - name: deploy war file to tomcat
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{secrets.TOMCAT_HOST}}
-          username: ${{secrets.TOMCAT_USERNAME}}
-          password: ${{secrets.TOMCAT_PASSEORD}}
-          script: |
-            cd /opt/tomcat/webapps/
-            rm -rf ROOT.war ROOT/
-            cp /path/to/war/artifact.war ROOT.war
+        run: |
+          cd /opt/tomcat/webapps/
+          rm -rf ROOT.war ROOT/
+          cp /path/to/war/artifact.war ROOT.war
