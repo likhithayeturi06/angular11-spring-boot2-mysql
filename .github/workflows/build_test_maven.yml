@@ -31,11 +31,10 @@ jobs:
           name: Package
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
       - name: deploy war file to tomcat
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{secrets.TOMCAT_HOST}}
-          username: ${{secrets.TOMCAT_USERNAME}}
-          password: ${{secrets.TOMCAT_PASSEORD}}
-          script: |
-            wget https://github.com/${{github.repository}}/releases/download/${{github.ref}}/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war -o /tmp/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
-            curl -T /tmp/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war "http://localhost:8080/manager/text/deploy?path=/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT&update=true" --user "${{secrets.TOMCAT_USERNAME}}:${{secrets.TOMCAT_}}"
+        run: |
+          curl -u ${{secrets.TOMCAT_USERNAME}}:${{secrets.TOMCAT_PASSEORD}} --upload-file target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war \
+            "http://${{secrets.TOMCAT_HOST}}:8080/manager/text/deploy?path=/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT&update=true"
+        env:
+          TOMCAT_HOST: ${{secrets.TOMCAT_HOST}}
+          TOMCAT_USERNAME: ${{secrets.TOMCAT_USERNAME}}
+          TOMCAT_PASSEORD: ${{secrets.TOMCAT_PASSEORD}}
