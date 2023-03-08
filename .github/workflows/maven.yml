@@ -35,7 +35,7 @@ jobs:
           name: War File
           path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
       - name: Test with Maven
-        run: mvn test --file pom.xml
+        run: mvn test
   build-and-test-angular:
     needs: build-and-test-maven
     runs-on: ubuntu-latest
