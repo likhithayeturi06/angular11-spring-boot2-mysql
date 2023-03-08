@@ -6,7 +6,6 @@
     <groupId>com.frontbackend.springboot</groupId>
     <artifactId>angular11-spring-boot2-mysql</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
 
     <!-- Inherit defaults from Spring Boot -->
     <parent>
@@ -31,6 +30,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.0-M1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <!-- Package as an executable jar -->
@@ -39,17 +44,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat-maven-plugin</artifactId>
-                <version>10</version>
-                <configuration>
-                    <url>http://localhost:8080/manager/text</url>
-                    <username>tomcat</username>
-                    <password>tomcat</password>
-                    <path>/angular11-spring-boot2-mysql</path>
-                </configuration>
             </plugin>
         </plugins>
     </build>
