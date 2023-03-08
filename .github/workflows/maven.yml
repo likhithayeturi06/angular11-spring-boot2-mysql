@@ -29,16 +29,14 @@ jobs:
         run: mvn dependency:resolve
       - name: Run Maven clean and package
         run: mvn clean package
-      - run: mkdir staging && cp target/*.war staging
       - name: Uploading War file as an artifact
         uses: actions/upload-artifact@v3
         with:
           name: War File
-          path: staging
+          path: target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war
       - name: Test with Maven
         run: mvn test
   build-and-test-angular:
-    needs: build-and-test-maven
     runs-on: ubuntu-latest
     steps:
       - name: Get-Code
