@@ -27,6 +27,9 @@ jobs:
         run: sudo apt-get install -y maven
       - name: Install Maven dependencies
         run: mvn dependency:resolve
+      - run: |
+          cd frontend
+          cd angular
       - name: Run Maven clean and package
         run: mvn clean package
       - run: |
