@@ -67,4 +67,6 @@ jobs:
           name: Angular build folder
           path: angular-app/dist
       - name: Test with Angular
-        run: ng test
+        run: |
+          cd angular-app
+          ng test
