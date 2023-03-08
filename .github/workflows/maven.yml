@@ -31,12 +31,12 @@ jobs:
         run: mvn clean package
       - run: |
           mkdir war
-          cp angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.jar war
+          cp target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.jar war
           cd war
           mkdir WEB-INF
           touch WEB-INF/web.xml
           mkdir WEB-INF/lib
-          jar -xvf angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.jar
+          jar -xvf target/angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.jar
           jar -cvf angular11-spring-boot2-mysql-0.0.1-SNAPSHOT.war .
       - name: Uploading War file as an artifact
         uses: actions/upload-artifact@v3
