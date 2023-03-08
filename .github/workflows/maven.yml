@@ -69,3 +69,4 @@ jobs:
       - name: Test with Angular
         run: |
           cd angular-app
+          ng test --browsers Chrome
