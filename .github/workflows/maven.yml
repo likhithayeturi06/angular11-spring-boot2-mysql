@@ -29,6 +29,9 @@ jobs:
         run: mvn dependency:resolve
       - name: Run Maven clean and package
         run: mvn clean package
+      - run : |
+          ls
+          pwd
       - name: Uploading War file as an artifact
         uses: actions/upload-artifact@v3
         with:
