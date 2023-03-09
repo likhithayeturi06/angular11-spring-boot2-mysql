@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: War File
-          path: target/angular11-spring-boot2-mysql-1.0.2.RELEASE.war
+          path: target/angular11-spring-boot2-mysql-1.0.2.RELEASE.jar
       - name: Test with Maven
         run: mvn test
   build-and-test-angular:
