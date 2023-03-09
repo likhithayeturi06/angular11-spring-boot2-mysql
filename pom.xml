@@ -6,7 +6,6 @@
     <groupId>com.frontbackend.springboot</groupId>
     <artifactId>angular11-spring-boot2-mysql</artifactId>
     <version>1.0.2.RELEASE</version>
-    <packaging>war</packaging>
 
     <!-- Inherit defaults from Spring Boot -->
     <parent>
@@ -31,11 +30,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.9-rc</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
