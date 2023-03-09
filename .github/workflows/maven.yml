@@ -61,15 +61,14 @@ jobs:
         run: npm install
       - name: Build Angular app
         run: |
-          cd frontend
-          cd angular
+          cd frontend/angular
           npm install
           ng build
       - name: Uploading build folder as an artifact
         uses: actions/upload-artifact@v3
         with:
           name: Angular build folder
-          path: angular/dist
+          path: frontend/angular/dist
       - name: Test with Angular
         run: |
-          cd angular-app
+          ls
