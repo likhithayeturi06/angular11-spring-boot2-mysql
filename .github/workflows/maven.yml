@@ -32,6 +32,8 @@ jobs:
       - run : |
           ls
           pwd
+          cd target
+          ls
       - name: Uploading War file as an artifact
         uses: actions/upload-artifact@v3
         with:
