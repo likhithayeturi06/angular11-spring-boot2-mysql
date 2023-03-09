@@ -30,15 +30,14 @@ jobs:
       - name: Run Maven clean and package
         run: mvn clean package
       - run : |
-          ls
-          pwd
           cd target
           ls
+      - run: mkdir staging && cp target/*.jar staging
       - name: Uploading War file as an artifact
         uses: actions/upload-artifact@v3
         with:
           name: War File
-          path: target/angular11-spring-boot2-mysql-1.0.2.RELEASE.jar
+          path: staging
       - name: Test with Maven
         run: mvn test
   build-and-test-angular:
@@ -62,7 +61,8 @@ jobs:
         run: npm install
       - name: Build Angular app
         run: |
-          cd angular-app
+          cd frontend
+          cd angular
           npm install
           ng build
       - name: Uploading build folder as an artifact

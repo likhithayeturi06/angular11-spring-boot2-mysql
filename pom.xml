@@ -6,7 +6,7 @@
     <groupId>com.frontbackend.springboot</groupId>
     <artifactId>angular11-spring-boot2-mysql</artifactId>
     <version>1.0.2.RELEASE</version>
-
+    <packaging>war</packaging>
     <!-- Inherit defaults from Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
