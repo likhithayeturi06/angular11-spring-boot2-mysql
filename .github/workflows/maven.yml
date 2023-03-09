@@ -29,9 +29,6 @@ jobs:
         run: mvn dependency:resolve
       - name: Run Maven clean and package
         run: mvn clean package
-      - run : |
-          cd target
-          ls
       - run: mkdir staging && cp target/*.jar staging
       - name: Uploading War file as an artifact
         uses: actions/upload-artifact@v3
