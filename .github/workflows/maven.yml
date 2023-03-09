@@ -30,8 +30,8 @@ jobs:
       - name: Run Maven clean and package
         run: mvn clean package
       - run: |
-        pwd
-        ls
+          pwd
+          ls
       - run: mkdir staging && cp target/*.war staging
       - name: Uploading War file as an artifact
         uses: actions/upload-artifact@v3
