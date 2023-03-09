@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import com.frontbackend.springboot.model.Post;
@@ -16,6 +17,7 @@ public class PostService {
     private final PostRepository postRepository;
 
     @Autowired
+    @Lazy
     public PostService(PostRepository postRepository) {
         this.postRepository = postRepository;
     }

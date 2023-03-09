@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,6 +30,7 @@ public class PostsController {
     private final PostService postService;
 
     @Autowired
+    @Lazy
     public PostsController(PostService postService) {
         this.postService = postService;
     }
