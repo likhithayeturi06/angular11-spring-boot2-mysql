@@ -28,12 +28,9 @@ jobs:
       - name: Install Maven dependencies
         run: mvn dependency:resolve
       - name: Lint
-        uses: github/super-linter@v4.10.1
+        run: mvn compile
       - name: Run Maven clean and package
         run: mvn clean package
-      - run: |
-          pwd
-          ls
       - run: mkdir staging && cp target/*.war staging
       - name: Uploading War file as an artifact
         uses: actions/upload-artifact@v3
