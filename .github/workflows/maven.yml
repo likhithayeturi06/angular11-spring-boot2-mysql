@@ -27,6 +27,8 @@ jobs:
         run: sudo apt-get install -y maven
       - name: Install Maven dependencies
         run: mvn dependency:resolve
+      - name: Lint
+          uses: github/super-linter@v4.10.1
       - name: Run Maven clean and package
         run: mvn clean package
       - run: |

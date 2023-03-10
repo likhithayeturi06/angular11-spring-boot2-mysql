@@ -25,7 +25,9 @@ export class PostFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.message = '';
+    console.log("hiiiii")
     const id = this.route.snapshot.params.id;
+    //console.log(id)
     if (id) {
       this.editPost(this.route.snapshot.params.id);
     }
@@ -43,9 +45,12 @@ export class PostFormComponent implements OnInit {
   }
 
   savePost(): void {
+    console.log("hellooo")
+    console.log(this.post.id)
     this.message = '';
 
     if (this.post.id) {
+      console.log(this.post.id)
       this.saveEditedPost();
     } else {
       this.createNewPost();

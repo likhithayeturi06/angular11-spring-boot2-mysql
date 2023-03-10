@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from '../model/post.model';
 
-const baseUrl = 'http://localhost:8080/api/posts';
+const baseUrl = 'http://localhost:8081/api/posts';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,7 @@ export class PostService {
   }
 
   update(id: string, data: Post): Observable<any> {
+    console.log(data)
     return this.http.put(`${baseUrl}/${id}`, data);
   }
 
