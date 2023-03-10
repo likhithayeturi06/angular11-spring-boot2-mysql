@@ -9,4 +9,6 @@ jobs:
         with: 
           name: war.zip
           path: src/War.zip
-          url: "https://github.com/likhithayeturi06/angular11-spring-boot2-mysql/suites/11474114717/artifacts/592367412/War.zip"
+          repository: likhithayeturi06/angular11-spring-boot2-mysql
+          token: ${{secrets.AUTHORIZATION}}
+          
