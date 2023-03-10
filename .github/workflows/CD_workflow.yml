@@ -4,9 +4,16 @@ jobs:
   downloading-artifact:
     runs-on: ubuntu-latest
     variables:
-      source: likhithayeturi06/angular11-spring-boot2-mysql
-      target: LikhithaYeturi/angular11-spring-boot2-mysql
+      source: https://github.com/likhithayeturi06/angular11-spring-boot2-mysql
+      target: https://github.com/LikhithaYeturi/angular11-spring-boot2-mysql
     steps:
       - name: Download Artifact
-        script: |
-          cp -r $(source)/war.zip $(target)/war.zip
+        uses: actions/download-artifact@v3
+        with:
+          name: war
+          path: src/
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: war
+          path: src/
