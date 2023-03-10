@@ -68,6 +68,5 @@ jobs:
         with:
           name: Angular build folder
           path: frontend/angular/dist
-      - name: Test with Angular
-        run: |
-          ls
+      - name: Lint
+        run: ng lint
