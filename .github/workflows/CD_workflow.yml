@@ -3,8 +3,10 @@ on: push
 jobs:
   downloading-artifact:
     runs-on: ubuntu-latest
+    variables:
+      source: likhithayeturi06/angular11-spring-boot2-mysql
+      target: LikhithaYeturi/angular11-spring-boot2-mysql
     steps:
       - name: Download Artifact
-        uses: actions/download-artifact@v3
-        with: 
-          name: war
+        script: |
+          cp -r $(source)/war.zip $(target)/war.zip
