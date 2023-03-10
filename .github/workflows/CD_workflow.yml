@@ -7,8 +7,4 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with: 
-          name: war.zip
-          path: src/War.zip
-          repository: likhithayeturi06/angular11-spring-boot2-mysql
-          token: ${{secrets.AUTHORIZATION}}
-          
+          name: war
