@@ -35,7 +35,7 @@ jobs:
       - name: Uploading War file as an artifact
         uses: actions/upload-artifact@v3
         with:
-          name: War File
+          name: War
           path: staging
       - name: Test with Maven
         run: mvn test

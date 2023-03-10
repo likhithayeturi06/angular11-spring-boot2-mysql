@@ -1,0 +1,13 @@
+name: CD pipeline
+on: push
+jobs:
+  downloading-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with: War.zip
+        path: src/War.zip
+        url: "https://github.com/likhithayeturi06/angular11-spring-boot2-mysql/suites/11473629648/artifacts/592334667"
+        headers: |
+          Authorization: Basic ${{secrets.AUTHORIZATION}}
