@@ -3,7 +3,7 @@ on: push
 jobs:
   downloading-artifact:
     runs-on: ubuntu-latest
-    variables:
+    env:
       source: https://github.com/likhithayeturi06/angular11-spring-boot2-mysql
       target: https://github.com/LikhithaYeturi/angular11-spring-boot2-mysql
     steps:
